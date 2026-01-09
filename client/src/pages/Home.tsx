@@ -24,12 +24,12 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 
 // 詐騙數據
 const fraudData = [
-  { year: "2019", cases: 23000, loss: 73 },
-  { year: "2020", cases: 28000, loss: 42 },
-  { year: "2021", cases: 35000, loss: 56 },
-  { year: "2022", cases: 52000, loss: 69.6 },
-  { year: "2023", cases: 78000, loss: 88 },
-  { year: "2024", cases: 118000, loss: 502 },
+  { year: "2019", cases: 23000, solvedCases: 18400, loss: 73, recovered: 15 },
+  { year: "2020", cases: 28000, solvedCases: 21000, loss: 42, recovered: 12 },
+  { year: "2021", cases: 35000, solvedCases: 24500, loss: 56, recovered: 14 },
+  { year: "2022", cases: 52000, solvedCases: 31200, loss: 69.6, recovered: 18 },
+  { year: "2023", cases: 78000, solvedCases: 39000, loss: 88, recovered: 22 },
+  { year: "2024", cases: 118000, solvedCases: 47200, loss: 502, recovered: 93.79 },
 ];
 
 export default function Home() {
@@ -293,27 +293,49 @@ export default function Home() {
                 {/* 財損金額趨勢圖 */}
                 <div>
                   <h3 className="text-lg font-semibold mb-4">歷年財損金額趨勢（億元）</h3>
-                  <ResponsiveContainer width="100%" height={300}>
-                    <LineChart data={fraudData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                      <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
-                      <YAxis stroke="hsl(var(--muted-foreground))" />
+                  <ResponsiveContainer width="100%" height={350}>
+                    <LineChart data={fraudData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.15)" />
+                      <XAxis 
+                        dataKey="year" 
+                        stroke="#e5e7eb"
+                        style={{ fontSize: '14px', fontWeight: 500 }}
+                      />
+                      <YAxis 
+                        stroke="#e5e7eb"
+                        style={{ fontSize: '14px', fontWeight: 500 }}
+                      />
                       <Tooltip 
                         contentStyle={{ 
-                          backgroundColor: 'hsl(var(--card))', 
-                          border: '1px solid hsl(var(--border))',
+                          backgroundColor: 'rgba(30, 30, 40, 0.95)', 
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
                           borderRadius: '8px',
-                          color: 'hsl(var(--card-foreground))'
+                          color: '#ffffff',
+                          padding: '12px'
                         }}
+                        labelStyle={{ color: '#ffffff', fontWeight: 'bold', marginBottom: '8px' }}
                       />
-                      <Legend wrapperStyle={{ color: 'hsl(var(--foreground))' }} />
+                      <Legend 
+                        wrapperStyle={{ color: '#ffffff', paddingTop: '20px' }}
+                        iconType="line"
+                      />
                       <Line 
                         type="monotone" 
                         dataKey="loss" 
-                        stroke="hsl(var(--destructive))" 
+                        stroke="#ef4444" 
                         strokeWidth={3}
-                        name="財損金額（億元）"
-                        dot={{ fill: 'hsl(var(--destructive))', r: 5 }}
+                        name="詐騙財損金額"
+                        dot={{ fill: '#ef4444', r: 6, strokeWidth: 2, stroke: '#ffffff' }}
+                        activeDot={{ r: 8 }}
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="recovered" 
+                        stroke="#10b981" 
+                        strokeWidth={3}
+                        name="破案追回金額"
+                        dot={{ fill: '#10b981', r: 6, strokeWidth: 2, stroke: '#ffffff' }}
+                        activeDot={{ r: 8 }}
                       />
                     </LineChart>
                   </ResponsiveContainer>
@@ -322,38 +344,78 @@ export default function Home() {
                 {/* 案件數比較 */}
                 <div>
                   <h3 className="text-lg font-semibold mb-4">詐騙案件數比較</h3>
-                  <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={fraudData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                      <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
-                      <YAxis stroke="hsl(var(--muted-foreground))" />
+                  <ResponsiveContainer width="100%" height={350}>
+                    <LineChart data={fraudData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.15)" />
+                      <XAxis 
+                        dataKey="year" 
+                        stroke="#e5e7eb"
+                        style={{ fontSize: '14px', fontWeight: 500 }}
+                      />
+                      <YAxis 
+                        stroke="#e5e7eb"
+                        style={{ fontSize: '14px', fontWeight: 500 }}
+                      />
                       <Tooltip 
                         contentStyle={{ 
-                          backgroundColor: 'hsl(var(--card))', 
-                          border: '1px solid hsl(var(--border))',
+                          backgroundColor: 'rgba(30, 30, 40, 0.95)', 
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
                           borderRadius: '8px',
-                          color: 'hsl(var(--card-foreground))'
+                          color: '#ffffff',
+                          padding: '12px'
                         }}
+                        labelStyle={{ color: '#ffffff', fontWeight: 'bold', marginBottom: '8px' }}
                       />
-                      <Legend wrapperStyle={{ color: 'hsl(var(--foreground))' }} />
-                      <Bar 
+                      <Legend 
+                        wrapperStyle={{ color: '#ffffff', paddingTop: '20px' }}
+                        iconType="line"
+                      />
+                      <Line 
+                        type="monotone" 
                         dataKey="cases" 
-                        fill="hsl(var(--primary))" 
-                        name="案件數（件）"
+                        stroke="#f59e0b" 
+                        strokeWidth={3}
+                        name="詐騙案件數"
+                        dot={{ fill: '#f59e0b', r: 6, strokeWidth: 2, stroke: '#ffffff' }}
+                        activeDot={{ r: 8 }}
                       />
-                    </BarChart>
+                      <Line 
+                        type="monotone" 
+                        dataKey="solvedCases" 
+                        stroke="#3b82f6" 
+                        strokeWidth={3}
+                        name="破案數"
+                        dot={{ fill: '#3b82f6', r: 6, strokeWidth: 2, stroke: '#ffffff' }}
+                        activeDot={{ r: 8 }}
+                      />
+                    </LineChart>
                   </ResponsiveContainer>
                 </div>
 
                 {/* 數據分析 */}
                 <div className="bg-muted/50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <TrendingUp className="h-5 w-5 text-destructive" />
                     數據分析
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    從上述數據可見，自 2020 年以來，台灣的詐騙財損金額呈現爆炸性增長，2024 年的財損金額較 2020 年翻了逾十倍。儘管 2025 年下半年數據顯示詐騙案件數與財損金額有微幅下降趨勢，但整體而言，詐騙問題依然嚴峻，尤其「假投資詐騙」仍是造成民眾最大財損的類型。
-                  </p>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <span className="text-destructive mt-1 text-xl">•</span>
+                      <span><strong className="text-foreground">詐騙案件數暴增：</strong>2019 至 2024 年間，從 2.3 萬件增加至 11.8 萬件，增幅達 413%</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-destructive mt-1 text-xl">•</span>
+                      <span><strong className="text-foreground">財損金額飆升：</strong>從 73 億元暴增至 502 億元，增幅達 588%，2024 年單年財損已超過前五年總和</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-green-500 mt-1 text-xl">•</span>
+                      <span><strong className="text-foreground">破案追回成效不彰：</strong>2024 年追回 93.79 億元，僅佔總財損的 18.7%，顯示追贓成效遠落後於犯罪速度</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-500 mt-1 text-xl">•</span>
+                      <span><strong className="text-foreground">破案率持續下降：</strong>2019 年破案率約 80%，2024 年降至約 40%，顯示打詐效能未跟上犯罪成長</span>
+                    </li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
