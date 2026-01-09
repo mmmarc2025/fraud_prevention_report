@@ -769,7 +769,7 @@ export default function Home() {
                 variant="outline"
                 size="lg"
                 className="gap-2"
-                onClick={() => window.open('https://www.youtube.com/@GlobalVision_TV', '_blank')}
+                onClick={() => window.open('https://www.youtube.com/@visionoffuture-2028', '_blank')}
               >
                 <Youtube className="h-5 w-5" />
                 YouTube 直球對決

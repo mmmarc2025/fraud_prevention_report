@@ -59,3 +59,6 @@
 - [x] 在網站最下方新增製作團隊區塊
 - [x] 添加直球對決頭像
 - [x] 添加YouTube直球對決連結
+
+## YouTube連結更新
+- [x] 更新直球對決YouTube頻道連結為 https://www.youtube.com/@visionoffuture-2028
