@@ -788,7 +788,7 @@ export default function Home() {
         <div className="container py-8">
           <div className="text-center space-y-4">
             <p className="text-sm text-muted-foreground">
-              視角製作 © 2020
+              視角製作 © 2026
             </p>
             <div className="flex justify-center gap-4">
               <Button 

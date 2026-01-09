@@ -74,3 +74,6 @@
 - [x] 在HTML head中添加Open Graph元標籤（og:title、og:description、og:image）
 - [x] 製作或設定預覽圖片用於社群分享
 - [x] 在網站最底部添加版權宣告「視角製作 © 2020」
+
+## 版權年份更新
+- [x] 將版權宣告年份從2020更新為2026
