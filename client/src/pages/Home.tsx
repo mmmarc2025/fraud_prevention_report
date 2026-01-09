@@ -226,14 +226,12 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-bold text-foreground">
               打詐？越打越詐！
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground">
-              賴清德政府打詐成效專題分析報告
+            <h2 className="text-2xl md:text-3xl font-semibold text-destructive leading-relaxed">
+              突破天際的百億打詐基金
             </h2>
-            <div className="inline-block px-6 py-2 bg-destructive/10 border-2 border-destructive rounded-full">
-              <p className="text-lg font-semibold text-destructive">
-                報告日期：2026 年 1 月 8 日 | 作者：Manus AI
-              </p>
-            </div>
+            <h3 className="text-xl md:text-2xl font-semibold text-muted-foreground">
+              換來的是財損也創新高！
+            </h3>
             <div className="flex flex-wrap justify-center gap-4 pt-4">
 
               <Button 
