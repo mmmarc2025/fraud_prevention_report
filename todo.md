@@ -62,3 +62,7 @@
 
 ## YouTube連結更新
 - [x] 更新直球對決YouTube頻道連結為 https://www.youtube.com/@visionoffuture-2028
+
+## Logo更新
+- [x] 將直球對決Logo圖片複製到專案public目錄
+- [x] 更新製作團隊區塊，使用實際Logo圖片替換YouTube圖示

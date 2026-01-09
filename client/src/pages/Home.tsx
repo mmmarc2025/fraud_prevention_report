@@ -762,8 +762,12 @@ export default function Home() {
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="text-2xl font-bold text-foreground">製作團隊</h2>
             <div className="flex flex-col items-center gap-4">
-              <div className="w-24 h-24 rounded-full bg-destructive/20 border-2 border-destructive flex items-center justify-center overflow-hidden">
-                <Youtube className="h-12 w-12 text-destructive" />
+              <div className="w-32 h-32 rounded-full overflow-hidden shadow-lg">
+                <img 
+                  src="/visionoffuture-logo.png" 
+                  alt="直球對決 Logo" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <Button
                 variant="outline"
