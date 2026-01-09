@@ -790,29 +790,6 @@ export default function Home() {
             <p className="text-sm text-muted-foreground">
               視角製作 © 2026
             </p>
-            <div className="flex justify-center gap-4">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => window.open('https://lin.ee/bXqTdwr', '_blank')}
-              >
-                LINE 社群
-              </Button>
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => window.open('https://donate.stripe.com/aFacN69CWeQt7nt2Xi4Ja0h', '_blank')}
-              >
-                贊助我們
-              </Button>
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => scrollToSection('comments')}
-              >
-                留言討論
-              </Button>
-            </div>
           </div>
         </div>
       </footer>
