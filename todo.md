@@ -107,3 +107,7 @@
 - [x] 更新SEO描述meta標籤
 - [x] 更新Open Graph標題和描述
 - [x] 更新Twitter Card標題和描述
+
+## Open Graph標籤優化
+- [x] 調整og:title使用完整新標題「被詐乾的錢包」
+- [x] 優化og:description文案與新標題風格一致
