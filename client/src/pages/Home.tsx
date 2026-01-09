@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { 
@@ -19,7 +20,13 @@ import {
   BarChart3,
   Scale,
   BookOpen,
-  Youtube
+  Youtube,
+  ShieldAlert,
+  ShoppingCart,
+  Users,
+  Phone,
+  Smartphone,
+  CreditCard
 } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
@@ -549,6 +556,228 @@ export default function Home() {
                 <p className="text-muted-foreground leading-relaxed">
                   未來，政府在打詐策略上可能需要更精準地分配資源，加強跨部會協調，並從根本上解決司法體系負荷過重的問題。同時，在推動政策時，也需更審慎地考量對民眾權益的影響，並確保行政措施的合法性與合理性，以重建民眾對政府打詐決心與成效的信任。
                 </p>
+              </CardContent>
+            </Card>
+          </section>
+
+          {/* 常見詐騙類型百科 */}
+          <section id="fraud-types">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-2xl">
+                  <ShieldAlert className="h-6 w-6 text-destructive" />
+                  常見詐騙類型百科
+                </CardTitle>
+                <CardDescription>
+                  了解常見詐騙手法，提高防範意識
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger className="hover:no-underline">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-destructive/20 flex items-center justify-center">
+                          <CreditCard className="h-5 w-5 text-destructive" />
+                        </div>
+                        <span className="text-lg font-semibold">假投資詐騙</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">詐騙手法：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          詐騙集團透過社群媒體、網路廣告或簡訊，宣稱提供高報酬的投資機會（如虛擬貨幣、股票、外匯等）。初期讓被害人小額投資並獲得小額利潤，建立信任後，誘導被害人投入大筆資金，最後以各種理由拒絕出金或直接消失。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">真實案例：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          2024年台北某上班族透過Line群組加入投資平台，初期投入10萬元獲得2萬元利潤，後續陸續投入200萬元，當要求出金時，平台要求繳交「稅金」和「保證金」，最後平台關閉，損失超過200萬元。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">防範建議：</h4>
+                        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                          <li>不輕信「保證獲利」、「高報酬低風險」的投資話術</li>
+                          <li>投資前查證平台是否合法，檢查是否有金管會核准</li>
+                          <li>不透過不明連結或APP進行投資</li>
+                          <li>與家人朋友討論，多方求證</li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger className="hover:no-underline">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-destructive/20 flex items-center justify-center">
+                          <ShoppingCart className="h-5 w-5 text-destructive" />
+                        </div>
+                        <span className="text-lg font-semibold">假網購詐騙</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">詐騙手法：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          詐騙集團在社群媒體、購物平台或討論區發佈低價商品資訊，吸引消費者私訊購買。付款後不出貨或寄送假貨、空包，之後就封鎖帳號或消失。部分詐騙集團還會以「超商取貨付款」為誘餘，騙取被害人信任。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">真實案例：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          2023年高雄某大學生在Facebook看到低價iPhone資訊，私訊賣家後以轉帳方式支付2萬5千元，等待一週後收到的卻是空包裝，賣家已封鎖帳號無法聯繫。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">防範建議：</h4>
+                        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                          <li>優先選擇知名購物平台，避免私下交易</li>
+                          <li>檢查賣家評價和資料，注意是否為新帳號</li>
+                          <li>使用第三方支付或貨到付款，避免直接轉帳</li>
+                          <li>對於過低的價格保持警覺</li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger className="hover:no-underline">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-destructive/20 flex items-center justify-center">
+                          <Users className="h-5 w-5 text-destructive" />
+                        </div>
+                        <span className="text-lg font-semibold">假交友詐騙</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">詐騙手法：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          詐騙集團在交友軟體、社群媒體上以帥哥美女的身份主動接近被害人，建立感情關係後，以各種理由借錢（如家人生病、投資缺口、過不了關等）或誘導投資。得手後就封鎖或刪除帳號，消失無蹤。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">真實案例：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          2024年台中某上班族在交友軟體認識「外籍男友」，交往兩個月後，對方聲稱在國外投資遇到困難，需要資金周轉，被害人陸續匯款150萬元，之後對方就失聯，才發現受騙。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">防範建議：</h4>
+                        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                          <li>對於網路上認識的對象保持警覺，尤其是主動接近者</li>
+                          <li>不輕易借錢給未曾見過面的網友</li>
+                          <li>視訊通話時注意對方是否顧左右而言他，可能是記下詐騙話術</li>
+                          <li>與家人朋友分享交友狀況，多方求證</li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-4">
+                    <AccordionTrigger className="hover:no-underline">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-destructive/20 flex items-center justify-center">
+                          <Phone className="h-5 w-5 text-destructive" />
+                        </div>
+                        <span className="text-lg font-semibold">假冒公務機關詐騙</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">詐騙手法：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          詐騙集團假冒檢察官、警察、健保署、國稅局等公務機關人員，以電話或簡訊通知被害人涉及洗錢、負債、未繳稅金等問題，要求被害人提供個人資料或匯款到指定帳戶「澄清」。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">真實案例：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          2023年桃園某退休教師接到自稱「檢察官」的電話，聲稱其帳戶涉及洗錢案件，需要配合調查並將存款轉入「監管帳戶」。被害人因害怕違法，陸續轉帳300萬元，後經家人提醒才發現受騙。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">防範建議：</h4>
+                        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                          <li>公務機關不會以電話要求提供個人資料或轉帳</li>
+                          <li>接到可疑電話應掛斷，主動撥打165反詐騙專線查證</li>
+                          <li>不透露個人資料、帳戶資訊或密碼</li>
+                          <li>與家人朋友討論，不獨自處理</li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-5">
+                    <AccordionTrigger className="hover:no-underline">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-destructive/20 flex items-center justify-center">
+                          <Smartphone className="h-5 w-5 text-destructive" />
+                        </div>
+                        <span className="text-lg font-semibold">AI換臉詐騙</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">詐騙手法：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          詐騙集團使用AI技術合成被害人親友的臉部和聲音，透過視訊通話或影片假冒親友身份，聲稱遇到緊急狀況需要借錢。由於外貌和聲音高度相似，被害人很難辨識真偽。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">真實案例：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          2024年中國福建某企業家接到「好友」的視訊通話，對方聲稱需要資金周轉，由於外貌和聲音都很像，被害人便轉帳430萬人民幣，後來才發現AI換臉詐騙。台灣也出現多起類似案例。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">防範建議：</h4>
+                        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                          <li>視訊通話時要求對方做特定動作或回答只有你們知道的問題</li>
+                          <li>對於緊急借錢要求，應掛斷後主動撥打對方原本的電話確認</li>
+                          <li>注意視訊畫面是否有延遲、卡頓或不自然的表情</li>
+                          <li>大額轉帳前一定要多重確認</li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-6">
+                    <AccordionTrigger className="hover:no-underline">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-destructive/20 flex items-center justify-center">
+                          <CreditCard className="h-5 w-5 text-destructive" />
+                        </div>
+                        <span className="text-lg font-semibold">解除分期付款詐騙</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">詐騙手法：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          詐騙集團假冒網購平台客服人員，以電話通知被害人購物時誤設為「分期付款」，每月會自動扣款，需要「解除設定」。詐騙集團會要求被害人前往ATM或網路銀行操作，聲稱是「解除設定」，實際上是引導被害人轉帳。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">真實案例：</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          2023年新竹某上班族接到自稱購物平台客服的電話，聲稱其購物時誤設為分期付款，需要解除。被害人依指示前往ATM操作，結果轉出8萬元，才發現受騙。
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">防範建議：</h4>
+                        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                          <li>正規購物平台不會主動來電要求解除分期設定</li>
+                          <li>ATM只有轉帳功能，無法「解除設定」</li>
+                          <li>接到可疑電話應掛斷，主動聯繫平台官方客服確認</li>
+                          <li>不依陌生人指示操作ATM或網路銀行</li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </CardContent>
             </Card>
           </section>
