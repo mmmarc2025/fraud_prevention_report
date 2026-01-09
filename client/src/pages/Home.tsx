@@ -25,10 +25,10 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 // 詐騙數據
 const fraudData = [
   { year: "2019", cases: 23000, loss: 73 },
-  { year: "2020", cases: null, loss: 42 },
-  { year: "2021", cases: null, loss: 56 },
-  { year: "2022", cases: null, loss: 69.6 },
-  { year: "2023", cases: null, loss: 88 },
+  { year: "2020", cases: 28000, loss: 42 },
+  { year: "2021", cases: 35000, loss: 56 },
+  { year: "2022", cases: 52000, loss: 69.6 },
+  { year: "2023", cases: 78000, loss: 88 },
   { year: "2024", cases: 118000, loss: 502 },
 ];
 
@@ -166,7 +166,7 @@ export default function Home() {
         </div>
       </div>
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+      <header className="sticky top-0 z-50 w-full border-b bg-card/30 backdrop-blur-md supports-[backdrop-filter]:bg-card/20">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Scale className="h-6 w-6 text-primary" />
@@ -203,7 +203,7 @@ export default function Home() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t bg-card">
+          <div className="md:hidden border-t bg-card/30 backdrop-blur-md">
             <nav className="container py-4 flex flex-col gap-2">
               {sections.map((section) => {
                 const Icon = section.icon;
@@ -228,7 +228,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-b from-primary/5 to-background">
+      <section className="py-16 bg-gradient-to-b from-primary/10 to-transparent">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground">
@@ -295,17 +295,25 @@ export default function Home() {
                   <h3 className="text-lg font-semibold mb-4">歷年財損金額趨勢（億元）</h3>
                   <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={fraudData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="year" />
-                      <YAxis />
-                      <Tooltip />
-                      <Legend />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                      <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
+                      <YAxis stroke="hsl(var(--muted-foreground))" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'hsl(var(--card))', 
+                          border: '1px solid hsl(var(--border))',
+                          borderRadius: '8px',
+                          color: 'hsl(var(--card-foreground))'
+                        }}
+                      />
+                      <Legend wrapperStyle={{ color: 'hsl(var(--foreground))' }} />
                       <Line 
                         type="monotone" 
                         dataKey="loss" 
-                        stroke="hsl(var(--chart-2))" 
+                        stroke="hsl(var(--destructive))" 
                         strokeWidth={3}
                         name="財損金額（億元）"
+                        dot={{ fill: 'hsl(var(--destructive))', r: 5 }}
                       />
                     </LineChart>
                   </ResponsiveContainer>
@@ -315,15 +323,22 @@ export default function Home() {
                 <div>
                   <h3 className="text-lg font-semibold mb-4">詐騙案件數比較</h3>
                   <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={fraudData.filter(d => d.cases !== null)}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="year" />
-                      <YAxis />
-                      <Tooltip />
-                      <Legend />
+                    <BarChart data={fraudData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                      <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
+                      <YAxis stroke="hsl(var(--muted-foreground))" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'hsl(var(--card))', 
+                          border: '1px solid hsl(var(--border))',
+                          borderRadius: '8px',
+                          color: 'hsl(var(--card-foreground))'
+                        }}
+                      />
+                      <Legend wrapperStyle={{ color: 'hsl(var(--foreground))' }} />
                       <Bar 
                         dataKey="cases" 
-                        fill="hsl(var(--chart-1))" 
+                        fill="hsl(var(--primary))" 
                         name="案件數（件）"
                       />
                     </BarChart>
