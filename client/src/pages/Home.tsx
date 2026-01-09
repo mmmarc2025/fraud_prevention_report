@@ -92,7 +92,7 @@ export default function Home() {
   };
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const shareTitle = "賴清德政府打詐成效專題分析報告";
+  const shareTitle = "被詐乾的錢包 - 賴清德政府打詐成效專題分析";
 
   const handleShare = (platform: string) => {
     const encodedUrl = encodeURIComponent(shareUrl);
@@ -170,7 +170,7 @@ export default function Home() {
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Scale className="h-6 w-6 text-primary" />
-            <h1 className="text-xl font-bold text-foreground">打詐？越打越詐！</h1>
+            <h1 className="text-xl font-bold text-foreground">被詐乾的錢包</h1>
           </div>
           
           {/* Desktop Navigation */}
@@ -232,13 +232,13 @@ export default function Home() {
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-              打詐？越打越詐！
+              被詐乾的錢包
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-destructive leading-relaxed">
-              突破天際的百億打詐基金
+              百億打詐基金換來的是什麼？
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold text-muted-foreground">
-              換來的是財損也創新高！
+              2024年詐騙財損502億創新高，全民錢包被詐乾！
             </h3>
             <div className="flex flex-wrap justify-center gap-4 pt-4">
 

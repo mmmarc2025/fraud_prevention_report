@@ -99,3 +99,11 @@
 - [x] 設計並生成favicon圖示
 - [x] 更新HTML中的favicon連結
 - [x] 確保favicon在瀏覽器標籤頁正常顯示
+
+## 標題與文案更新：被詐乾的錢包
+- [x] 更新網站主標題為「被詐乾的錢包」
+- [x] 調整Hero區塊副標題文案
+- [x] 更新HTML頁面標題（title標籤）
+- [x] 更新SEO描述meta標籤
+- [x] 更新Open Graph標題和描述
+- [x] 更新Twitter Card標題和描述
