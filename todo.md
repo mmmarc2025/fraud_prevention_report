@@ -69,3 +69,8 @@
 
 ## Logo圖片更新（白色背景版本）
 - [x] 替換為新的Logo圖片（白色背景版本）
+
+## Open Graph標籤與版權宣告
+- [x] 在HTML head中添加Open Graph元標籤（og:title、og:description、og:image）
+- [x] 製作或設定預覽圖片用於社群分享
+- [x] 在網站最底部添加版權宣告「視角製作 © 2020」

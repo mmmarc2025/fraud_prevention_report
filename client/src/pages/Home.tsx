@@ -788,7 +788,7 @@ export default function Home() {
         <div className="container py-8">
           <div className="text-center space-y-4">
             <p className="text-sm text-muted-foreground">
-              © 2026 打詐？越打越詐！- 賴清德政府打詐成效分析 | 作者：Manus AI
+              視角製作 © 2020
             </p>
             <div className="flex justify-center gap-4">
               <Button 
