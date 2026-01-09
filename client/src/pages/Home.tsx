@@ -18,7 +18,8 @@ import {
   FileText,
   BarChart3,
   Scale,
-  BookOpen
+  BookOpen,
+  Youtube
 } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
@@ -755,8 +756,31 @@ export default function Home() {
         </div>
       </div>
 
+      {/* 製作團隊 */}
+      <section className="py-12 bg-card/50">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center space-y-6">
+            <h2 className="text-2xl font-bold text-foreground">製作團隊</h2>
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-24 h-24 rounded-full bg-destructive/20 border-2 border-destructive flex items-center justify-center overflow-hidden">
+                <Youtube className="h-12 w-12 text-destructive" />
+              </div>
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-2"
+                onClick={() => window.open('https://www.youtube.com/@GlobalVision_TV', '_blank')}
+              >
+                <Youtube className="h-5 w-5" />
+                YouTube 直球對決
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="border-t bg-card mt-12">
+      <footer className="border-t bg-card mt-0">
         <div className="container py-8">
           <div className="text-center space-y-4">
             <p className="text-sm text-muted-foreground">
