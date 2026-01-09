@@ -553,63 +553,6 @@ export default function Home() {
             </Card>
           </section>
 
-          {/* 贊助區塊 */}
-          <section id="sponsor">
-            <Card className="bg-gradient-to-br from-accent/10 to-primary/5 border-accent/20">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-2xl">
-                  <Heart className="h-6 w-6 text-accent" />
-                  贊助我們
-                </CardTitle>
-                <CardDescription>
-                  您的支持是我們持續產出優質內容的動力
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div className="flex flex-col items-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                    <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                      <Heart className="h-8 w-8 text-accent" />
-                    </div>
-                    <h3 className="font-semibold mb-2">信用卡贊助</h3>
-                    <p className="text-sm text-muted-foreground text-center mb-4">
-                      安全便捷的線上支付
-                    </p>
-                    <Button variant="outline" className="w-full" onClick={() => toast.info("信用卡贊助功能即將推出")}>
-                      立即贊助
-                    </Button>
-                  </div>
-                  
-                  <div className="flex flex-col items-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                    <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                      <Heart className="h-8 w-8 text-accent" />
-                    </div>
-                    <h3 className="font-semibold mb-2">銀行轉帳</h3>
-                    <p className="text-sm text-muted-foreground text-center mb-4">
-                      直接轉帳支持我們
-                    </p>
-                    <Button variant="outline" className="w-full" onClick={() => toast.info("銀行帳號：請聯繫我們獲取")}>
-                      查看帳號
-                    </Button>
-                  </div>
-                  
-                  <div className="flex flex-col items-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                    <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                      <Heart className="h-8 w-8 text-accent" />
-                    </div>
-                    <h3 className="font-semibold mb-2">其他方式</h3>
-                    <p className="text-sm text-muted-foreground text-center mb-4">
-                      更多贊助選項
-                    </p>
-                    <Button variant="outline" className="w-full" onClick={() => toast.info("更多贊助方式即將推出")}>
-                      了解更多
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
           {/* 社群分享 */}
           <section id="share">
             <Card>
