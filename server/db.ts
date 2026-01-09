@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { comments, InsertComment, InsertUser, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,23 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// Comment queries
+export async function getAllComments() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get comments: database not available");
+    return [];
+  }
+
+  return await db.select().from(comments).orderBy(desc(comments.createdAt));
+}
+
+export async function createComment(comment: InsertComment) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const result = await db.insert(comments).values(comment);
+  return result;
+}

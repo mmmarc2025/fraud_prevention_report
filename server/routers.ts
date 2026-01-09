@@ -1,10 +1,11 @@
 import { COOKIE_NAME } from "@shared/const";
+import { z } from "zod";
+import { createComment, getAllComments } from "./db";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 
 export const appRouter = router({
-    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
@@ -17,12 +18,33 @@ export const appRouter = router({
     }),
   }),
 
-  // TODO: add feature routers here, e.g.
-  // todo: router({
-  //   list: protectedProcedure.query(({ ctx }) =>
-  //     db.getUserTodos(ctx.user.id)
-  //   ),
-  // }),
+  comments: router({
+    list: publicProcedure.query(async () => {
+      return await getAllComments();
+    }),
+    create: publicProcedure
+      .input(
+        z.object({
+          name: z.string().min(1).max(100),
+          content: z.string().min(1).max(1000),
+          captchaAnswer: z.number(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        // Simple captcha validation (3 + 5 = 8)
+        if (input.captchaAnswer !== 8) {
+          throw new Error("驗證碼錯誤，請重試");
+        }
+
+        await createComment({
+          name: input.name,
+          content: input.content,
+          userId: ctx.user?.id,
+        });
+
+        return { success: true };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

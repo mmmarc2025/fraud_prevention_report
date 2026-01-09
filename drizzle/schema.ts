@@ -25,4 +25,20 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+/**
+ * Comments table for user feedback on the fraud prevention report.
+ */
+export const comments = mysqlTable("comments", {
+  id: int("id").autoincrement().primaryKey(),
+  /** User ID reference - optional to allow anonymous comments */
+  userId: int("userId"),
+  /** Commenter name - for display purposes */
+  name: varchar("name", { length: 100 }).notNull(),
+  /** Comment content */
+  content: text("content").notNull(),
+  /** Creation timestamp */
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type Comment = typeof comments.$inferSelect;
+export type InsertComment = typeof comments.$inferInsert;
