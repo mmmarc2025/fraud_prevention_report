@@ -140,31 +140,23 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Fixed Floating Buttons */}
-      <div className="fixed left-6 bottom-6 z-50">
-        <button
-          onClick={() => window.open('https://lin.ee/bXqTdwr', '_blank')}
-          className="w-16 h-16 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center group"
-          aria-label="加入 LINE 社群"
-        >
-          <MessageCircle className="h-8 w-8" />
-        </button>
-        <div className="mt-2 text-center text-xs font-medium text-foreground">
-          加入社群
-        </div>
-      </div>
+      {/* 贊助按鈕 - 左下角 */}
+      <button
+        onClick={() => window.open('https://donate.stripe.com/aFacN69CWeQt7nt2Xi4Ja0h', '_blank')}
+        className="fixed left-6 bottom-6 z-50 w-16 h-16 rounded-full bg-accent text-accent-foreground shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center group"
+        aria-label="贊助我們"
+      >
+        <Heart className="h-8 w-8" />
+      </button>
       
-      <div className="fixed right-6 bottom-6 z-50">
-        <button
-          onClick={() => window.open('https://donate.stripe.com/aFacN69CWeQt7nt2Xi4Ja0h', '_blank')}
-          className="w-16 h-16 rounded-full bg-accent text-accent-foreground shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center group"
-          aria-label="贊助我們"
-        >
-          <Heart className="h-8 w-8" />
-        </button>
-        <div className="mt-2 text-center text-xs font-medium text-foreground">
-          贊助我們
-        </div>
-      </div>
+      {/* 社群按鈕 - 右下角 */}
+      <button
+        onClick={() => window.open('https://lin.ee/bXqTdwr', '_blank')}
+        className="fixed right-6 bottom-6 z-50 w-16 h-16 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center group"
+        aria-label="加入 LINE 社群"
+      >
+        <MessageCircle className="h-8 w-8" />
+      </button>
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-card/30 backdrop-blur-md supports-[backdrop-filter]:bg-card/20">
         <div className="container flex h-16 items-center justify-between">
