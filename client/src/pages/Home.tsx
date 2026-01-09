@@ -139,12 +139,38 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Fixed Floating Buttons */}
+      <div className="fixed left-6 bottom-6 z-50">
+        <button
+          onClick={() => window.open('https://lin.ee/bXqTdwr', '_blank')}
+          className="w-16 h-16 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center group"
+          aria-label="加入 LINE 社群"
+        >
+          <MessageCircle className="h-8 w-8" />
+        </button>
+        <div className="mt-2 text-center text-xs font-medium text-foreground">
+          加入社群
+        </div>
+      </div>
+      
+      <div className="fixed right-6 bottom-6 z-50">
+        <button
+          onClick={() => window.open('https://donate.stripe.com/aFacN69CWeQt7nt2Xi4Ja0h', '_blank')}
+          className="w-16 h-16 rounded-full bg-accent text-accent-foreground shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center group"
+          aria-label="贊助我們"
+        >
+          <Heart className="h-8 w-8" />
+        </button>
+        <div className="mt-2 text-center text-xs font-medium text-foreground">
+          贊助我們
+        </div>
+      </div>
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Scale className="h-6 w-6 text-primary" />
-            <h1 className="text-xl font-bold text-foreground">打詐成效分析</h1>
+            <h1 className="text-xl font-bold text-foreground">打詐？越打越詐！</h1>
           </div>
           
           {/* Desktop Navigation */}
@@ -205,40 +231,23 @@ export default function Home() {
       <section className="py-16 bg-gradient-to-b from-primary/5 to-background">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-              賴清德政府打詐成效專題分析報告
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+              打詐？越打越詐！
             </h1>
-            <p className="text-lg text-muted-foreground">
-              報告日期：2026 年 1 月 8 日 | 作者：Manus AI
-            </p>
+            <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground">
+              賴清德政府打詐成效專題分析報告
+            </h2>
+            <div className="inline-block px-6 py-2 bg-destructive/10 border-2 border-destructive rounded-full">
+              <p className="text-lg font-semibold text-destructive">
+                報告日期：2026 年 1 月 8 日 | 作者：Manus AI
+              </p>
+            </div>
             <div className="flex flex-wrap justify-center gap-4 pt-4">
+
               <Button 
                 size="lg" 
                 className="gap-2"
-                onClick={() => window.open('https://line.me/ti/g2/your-line-group-id', '_blank')}
-              >
-                <MessageCircle className="h-5 w-5" />
-                加入 LINE 社群
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="gap-2"
-                onClick={() => scrollToSection('sponsor')}
-              >
-                <Heart className="h-5 w-5" />
-                贊助我們
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="gap-2"
-                onClick={() => {
-                  toast.info("請選擇分享平台", {
-                    description: "使用下方的社群分享按鈕",
-                  });
-                  scrollToSection('share');
-                }}
+                onClick={() => scrollToSection('share')}
               >
                 <Share2 className="h-5 w-5" />
                 分享報告
@@ -684,20 +693,20 @@ export default function Home() {
         <div className="container py-8">
           <div className="text-center space-y-4">
             <p className="text-sm text-muted-foreground">
-              © 2026 賴清德政府打詐成效分析報告 | 作者：Manus AI
+              © 2026 打詐？越打越詐！- 賴清德政府打詐成效分析 | 作者：Manus AI
             </p>
             <div className="flex justify-center gap-4">
               <Button 
                 variant="ghost" 
                 size="sm"
-                onClick={() => window.open('https://line.me/ti/g2/your-line-group-id', '_blank')}
+                onClick={() => window.open('https://lin.ee/bXqTdwr', '_blank')}
               >
                 LINE 社群
               </Button>
               <Button 
                 variant="ghost" 
                 size="sm"
-                onClick={() => scrollToSection('sponsor')}
+                onClick={() => window.open('https://donate.stripe.com/aFacN69CWeQt7nt2Xi4Ja0h', '_blank')}
               >
                 贊助我們
               </Button>
