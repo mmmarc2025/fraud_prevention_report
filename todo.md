@@ -111,3 +111,9 @@
 ## Open Graph標籤優化
 - [x] 調整og:title使用完整新標題「被詐乾的錢包」
 - [x] 優化og:description文案與新標題風格一致
+
+## 社群分享預覽圖製作
+- [x] 設計並生成1200x630px的Facebook/社群分享預覽圖
+- [x] 圖片包含「被詐乾的錢包」標題和關鍵數據視覺化
+- [x] 更新og:image和twitter:image指向新圖片
+- [x] 確保圖片在Facebook分享預覽中正常顯示
